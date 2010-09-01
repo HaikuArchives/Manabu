@@ -55,6 +55,10 @@ ParseDeckFile(const char* filename, list<Card*> *cards)
 			&& !xmlStrcmp(cur_node->name, (const xmlChar *)"card"))
 		{
 			Card* card = new Card();
+			content = xmlGetProp(cur_node, (xmlChar*)"id");
+			if (content != NULL)
+				card->SetId(content);
+			
 			for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next)
 			{
 				if (!xmlStrcmp(child_node->name, (const xmlChar *)"front")) {

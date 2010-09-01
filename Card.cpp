@@ -32,6 +32,7 @@
 
 Card::Card()
 	:
+	fId(NULL),
 	fFront(NULL),
 	fBack(NULL),
 	fBackExample(NULL)
@@ -40,8 +41,9 @@ Card::Card()
 }
 
 
-Card::Card(xmlChar* front, xmlChar* back, xmlChar* backExample)
+Card::Card(xmlChar* id, xmlChar* front, xmlChar* back, xmlChar* backExample)
 	:
+	fId(id),
 	fFront(front),
 	fBack(back),
 	fBackExample(backExample)
@@ -55,6 +57,23 @@ Card::~Card()
 	xmlFree(fFront);
 	xmlFree(fBack);
 	xmlFree(fBackExample);
+}
+
+
+void
+Card::SetId(xmlChar* id)
+{
+	fId = id;
+}
+
+
+int32_t
+Card::GetId(xmlChar** id)
+{
+	if (fId == NULL)
+		return -1;
+	*id = fId;
+	return 1;
 }
 
 

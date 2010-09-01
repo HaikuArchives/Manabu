@@ -30,8 +30,12 @@
 class Card {
 public:
 					Card();
-					Card(xmlChar* front, xmlChar* back, xmlChar* backExample);
+					Card(xmlChar* id, xmlChar* front, xmlChar* back,
+						xmlChar* backExample);
 	virtual			~Card();
+
+	void			SetId(xmlChar* id);
+	int32_t			GetId(xmlChar** id);
 
 	void			SetFront(xmlChar* front);
 	int32_t			GetFront(xmlChar** front);
@@ -44,6 +48,7 @@ public:
 
 	void			DumpToStdout();
 private:
+	xmlChar*		fId;
 	xmlChar*		fFront;
 	xmlChar*		fBack;
 	xmlChar*		fBackExample;
