@@ -7,6 +7,8 @@
  */
 
 #include "Manabu.h"
+#ifdef HAIKU_BUILD
+
 #include "ManabuWindow.h"
 
 #include <Application.h>
@@ -52,3 +54,5 @@ main(int argc, char* argv[])
         
         return EXIT_SUCCESS;
 }
+
+#endif

@@ -9,6 +9,9 @@
 #ifndef MANABU_H_
 #define MANABU_H_
 
+#undef HAIKU_BUILD
+#ifdef HAIKU_BUILD
+
 #include <Application.h>
 #include <Catalog.h>
 #include <Window.h>
@@ -24,4 +27,5 @@ private:
         BWindow*                fMainWindow;
 };
 
+#endif
 #endif
