@@ -20,45 +20,60 @@
 * THE SOFTWARE.
 */
 
-#ifndef _CARD_H_
-#define _CARD_H_
 
-#include <libxml/parser.h>
+#include "PileManager.h"
 
 #include <stdint.h>
 
-class Card {
-public:
-					Card();
-					Card(xmlChar* id, xmlChar* front, xmlChar* back,
-						xmlChar* backExample, int32_t pileNumber);
-	virtual			~Card();
+#include <list>
+using namespace std;
 
-	void			SetId(xmlChar* id);
-	int32_t			GetId(xmlChar** id);
-
-	void			SetFront(xmlChar* front);
-	int32_t			GetFront(xmlChar** front);
-
-	void			SetBack(xmlChar* back);
-	int32_t			GetBack(xmlChar** back);
-
-	void			SetBackExample(xmlChar* backExample);
-	int32_t			GetBackExample(xmlChar** backExample);
-
-	void			SetPileNumber(int32_t pileNumber) { fPileNumber = pileNumber; }
-	int32_t			PileNumber() { return fPileNumber; }
-
-	void			DumpToStdout();
-private:
-	xmlChar*		fId;
-	xmlChar*		fFront;
-	xmlChar*		fBack;
-	xmlChar*		fBackExample;
-
-	int32_t			fPileNumber;
-};
+PileManager::PileManager()
+	:
+	fMaxPile(5)
+{
+	fPiles = new list<Card*>[fMaxPile];
+}
 
 
-#endif
+PileManager::PileManager(int32_t maxPile)
+	:
+	fMaxPile(maxPile)
+{
+	fPiles = new list<Card*>[fMaxPile];
+}
+
+
+PileManager::~PileManager()
+{
+}
+
+
+int32_t
+PileManager::AddToPile(Card* card, int32_t pileNumber)
+{
+	int32_t pileNum = pileNumber - 1;
+	if (pileNum >= fMaxPile)
+		pileNum = fMaxPile - 1;
+	if (pileNum < 0)
+		pileNum = 0;
+
+	card->SetPileNumber(pileNum+1);
+	fPiles[pileNum].push_back(card);
+	return pileNum;
+}
+
+int32_t
+PileManager::GetPile(list<Card*>** pile, int32_t pileNumber)
+{
+	int32_t pileNum = pileNumber - 1;
+	if (pileNum >= fMaxPile)
+		pileNum = fMaxPile - 1;
+	if (pileNum < 0)
+		pileNum = 0;
+
+	*pile = &fPiles[pileNum];
+	return pileNum;
+}
+
 

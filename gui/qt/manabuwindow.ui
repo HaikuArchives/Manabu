@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fMainWindow</class>
+ <widget class="QMainWindow" name="fMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>649</width>
+    <height>541</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manabu</string>
+  </property>
+  <widget class="QWidget" name="fCentralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLabel" name="fWord">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="fAnswer"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="fSubmit">
+      <property name="text">
+       <string>Submit</string>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="fResult">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" rowspan="4">
+     <widget class="QTreeWidget" name="fDeckSelector">
+      <property name="minimumSize">
+       <size>
+        <width>313</width>
+        <height>0</height>
+       </size>
+      </property>
+      <column>
+       <property name="text">
+        <string>Decks</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="fMenuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>649</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="fMenuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="fActionOpen"/>
+    <addaction name="fActionExit"/>
+   </widget>
+   <addaction name="fMenuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="fStatusBar"/>
+  <action name="fActionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="fActionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

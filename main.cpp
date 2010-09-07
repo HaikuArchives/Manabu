@@ -20,7 +20,15 @@
 * THE SOFTWARE.
 */
 
+#include "config.h"
+
 #include "Card.h"
+#include "PileManager.h"
+#include "Utilities.h"
+
+#ifdef HAIKU_BUILD
+#include "gui/haiku/Manabu.h"
+#endif
 
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
@@ -34,87 +42,76 @@
 #include <list>
 using namespace std;
 
-void 
-ParseDeckFile(const char* filename, list<Card*> *cards)
-{
-	xmlNode *cur_node, *child_node;
-	xmlChar *content;
-
-	xmlDocPtr doc;
-	doc = xmlParseFile(filename);
-
-	if (doc == NULL) 
-		printf("error: could not parse file file.xml\n");
-  
-	/*Get the root element node */
-	xmlNode *root = NULL;
-	root = xmlDocGetRootElement(doc);
-	for(cur_node = root->children; cur_node != NULL; cur_node = cur_node->next)
-	{
-		if ( cur_node->type == XML_ELEMENT_NODE
-			&& !xmlStrcmp(cur_node->name, (const xmlChar *)"card"))
-		{
-			Card* card = new Card();
-			content = xmlGetProp(cur_node, (xmlChar*)"id");
-			if (content != NULL)
-				card->SetId(content);
-			
-			for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next)
-			{
-				if (!xmlStrcmp(child_node->name, (const xmlChar *)"front")) {
-					content = xmlNodeGetContent(child_node);
-					if (content != NULL)
-						card->SetFront(content);
-				}
-				if (!xmlStrcmp(child_node->name, (const xmlChar *)"back")) {
-					content = xmlNodeGetContent(child_node);
-					if (content != NULL)
-						card->SetBack(content);
-				}
-				if (!xmlStrcmp(child_node->name, (const xmlChar *)"back_example")) {
-					content = xmlNodeGetContent(child_node);
-					if (content != NULL)
-					card->SetBackExample(content);
-				}
-			}
-			cards->push_back(card);
-		}
-	}
-	xmlFreeDoc(doc);
-	xmlCleanupParser();
-}
+#define NUM_PILES 5
 
 int
 main(int argc, char* argv[])
 {
-	list<Card*> cards;
-	xmlChar* 	tmp;
-	char		input[100];
+#ifdef COMMAND_LINE
+	list<Card*>*	onDeck;
+	xmlChar* 		tmp;
+	char			input[100];
+	int32_t 		end, pileNum, size;
+
+	PileManager manager(5);
 
 	if (argc >= 2)
-		ParseDeckFile(argv[1], &cards);
-	
-	for (list<Card*>::iterator it = cards.begin(); it != cards.end(); it++) {
-		Card* card = *it;
-		card->GetFront(&tmp);
-		printf("Front: %s\n", tmp);
-		printf("Back: ");
+		ParseDeckFile(argv[1], &manager);
+
+	for (;;) {
+		printf("Enter deck number you would like to practice [1-%i]: ", NUM_PILES);
 		fgets(input, 100, stdin);
-		int32_t end = strlen(input);
+		end = strlen(input);
 		input[end - 1] = '\0';
-		card->GetBack(&tmp);
-		if (strcasecmp(input, "q") == 0)
-			break;		
-		if (strcasecmp(input, (char*)tmp) == 0)
-			printf("Correct!\n");
-		else
-			printf("Sorry that is incorrect, the correct answer is: %s\n", tmp);
+		end = sscanf(input, "%i", &pileNum);
+		if (end != 1) {
+			printf("The pile entered was incorrect\n");
+			continue;
+		}
+		manager.GetPile(&onDeck, pileNum);
+		if (onDeck->empty()) {
+			printf("The chosen deck does not contain any cards. Please choose another.\n");
+			continue;
+		}
+		size = onDeck->size();
+		for (int32_t i = 0; i < size; i++) {
+			Card* card = onDeck->front();
+			onDeck->pop_front();
+			card->GetFront(&tmp);
+			printf("Front: %s\n", tmp);
+			printf("Back: ");
+			fgets(input, 100, stdin);
+			end = strlen(input);
+			input[end - 1] = '\0';
+			card->GetBack(&tmp);
+			if (strcasecmp(input, "q") == 0)
+				break;		
+			if (strcasecmp(input, (char*)tmp) == 0) {
+				printf("Correct!\n");
+				manager.AddToPile(card, card->PileNumber() - 1);
+			}
+			else {
+				printf("Sorry that is incorrect, the correct answer is: %s\n", tmp);
+				manager.AddToPile(card, card->PileNumber() + 1);
+			}
+		}
 	}
 
-	for (list<Card*>::iterator it = cards.begin(); it != cards.end(); it++) {
-		Card* card = *it;
-		delete card;
+	for (int32_t i = 0; i < NUM_PILES; i++) {
+		manager.GetPile(&onDeck, i+1);		
+		for (list<Card*>::iterator it = onDeck->begin(); it != onDeck->end(); it++) {
+			Card* card = *it;
+			delete card;
+		}
 	}
+#endif
+
+#ifdef HAIKU_BUILD
+	Manabu app;
+	app.Run();
+
+	return EXIT_SUCCESS;
+#endif
 }
 
 

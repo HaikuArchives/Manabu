@@ -35,18 +35,21 @@ Card::Card()
 	fId(NULL),
 	fFront(NULL),
 	fBack(NULL),
-	fBackExample(NULL)
+	fBackExample(NULL),
+	fPileNumber(0)
 {
 
 }
 
 
-Card::Card(xmlChar* id, xmlChar* front, xmlChar* back, xmlChar* backExample)
+Card::Card(xmlChar* id, xmlChar* front, xmlChar* back, xmlChar* backExample,
+	int32_t pileNumber)
 	:
 	fId(id),
 	fFront(front),
 	fBack(back),
-	fBackExample(backExample)
+	fBackExample(backExample),
+	fPileNumber(pileNumber)
 {
 
 }
@@ -136,6 +139,8 @@ Card::DumpToStdout()
 	printf("-- Front        > %s\n", fFront);
 	printf("-- Back         > %s\n", fBack);
 	printf("-- Back Example > %s\n", fBackExample);
+	printf("-- ID			> %s\n", fId);
+	printf("-- Pile Number  > %i\n", fPileNumber);
 }
 
 
