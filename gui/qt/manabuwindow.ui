@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>649</width>
-    <height>541</height>
+    <height>355</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,34 +15,7 @@
   </property>
   <widget class="QWidget" name="fCentralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QLabel" name="fWord">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="fAnswer"/>
-    </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="fSubmit">
-      <property name="text">
-       <string>Submit</string>
-      </property>
-      <property name="default">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="fResult">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" rowspan="4">
+    <item row="0" column="0" rowspan="6">
      <widget class="QTreeWidget" name="fDeckSelector">
       <property name="minimumSize">
        <size>
@@ -57,6 +30,26 @@
       </column>
      </widget>
     </item>
+    <item row="5" column="2">
+     <widget class="QLineEdit" name="fAnswer"/>
+    </item>
+    <item row="5" column="5">
+     <widget class="QComboBox" name="fDeckNumber"/>
+    </item>
+    <item row="2" column="2" colspan="3">
+     <widget class="QLabel" name="fResult">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="fWord">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="fMenuBar">
@@ -65,7 +58,7 @@
      <x>0</x>
      <y>0</y>
      <width>649</width>
-     <height>23</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="fMenuFile">

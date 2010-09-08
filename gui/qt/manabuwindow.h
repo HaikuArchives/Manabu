@@ -1,7 +1,7 @@
 #ifndef MANABUWINDOW_H
 #define MANABUWINDOW_H
 
-#include "ui_manabuwindow.h"
+#include "../../qt/ui_manabuwindow.h"
 #include "../../PileManager.h"
 #include <QtGui/QMainWindow>
 
@@ -18,11 +18,13 @@ public slots:
     void                    SubmitClicked();
     void                    Quit();
     void                    OpenDeck();
+    void                    PileIndexChanged(int index);
 private:
     Ui::fMainWindow         fWindow;
     map<int,PileManager*>   fDecks;
     int                     fCurrentDeck;
-    list<Card*>             fOnDeck;
+    int                     fCurrentPile;
+    list<Card*>*            fOnDeck;
 
     void                    _CreatePile(int pileNum);
     void                    _ShowCard();
