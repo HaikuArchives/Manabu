@@ -17,4 +17,3 @@ HEADERS += manabuwindow.h \
 FORMS += ../gui/qt/manabuwindow.ui
 CONFIG += link_pkgconfig
 PKGCONFIG += libxml-2.0
-RESOURCES += icons.qrc

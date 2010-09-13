@@ -25,6 +25,7 @@
 #include <list>
 using namespace std;
 
-void ParseDeckFile(const char* filename, PileManager *manager);
+void ParseDeckFile(const char* filename, PileManager* manager);
+void WriteDeckFile(const char* filename, PileManager* manager);
 
 #endif
