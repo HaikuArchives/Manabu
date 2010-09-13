@@ -27,6 +27,8 @@
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
+#include <libxml/encoding.h>
+#include <libxml/xmlwriter.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,8 +38,10 @@
 #include <list>
 using namespace std;
 
-void 
-        ParseDeckFile(const char* filename, PileManager *manager)
+#define MY_ENCODING "ISO-8859-1"
+
+void
+ParseDeckFile(const char* filename, PileManager* manager)
 {
     xmlNode *cur_node, *child_node;
     xmlChar *content;
@@ -68,6 +72,15 @@ void
             if (content != NULL)
                 card->SetId(content);
 
+			content = xmlGetProp(cur_node, (xmlChar*)"pile");
+            if (content != NULL) {
+				int32_t pile = 0;
+				sscanf ((char*)content, "%i", &pile);
+				card->SetPileNumber(pile);
+            } else {
+				card->SetPileNumber(5);
+			}
+
             for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next)
             {
                 if (!xmlStrcmp(child_node->name, (const xmlChar *)"front")) {
@@ -85,16 +98,114 @@ void
                     if (content != NULL)
                         card->SetBackExample(content);
                 }
-                if (!xmlStrcmp(child_node->name, (const xmlChar *)"pile")) {
-                    content = xmlNodeGetContent(child_node);
-                    if (content != NULL)
-                        card->SetPileNumber((int32_t)content); // THIS OBVIOUSLY DOES NOT WORK
-                }
+
             }
-            card->SetPileNumber(5);
-            manager->AddToPile(card, 5);
+            manager->AddToPile(card, card->PileNumber());
         }
     }
     xmlFreeDoc(doc);
     xmlCleanupParser();
 }
+
+void 
+WriteDeckFile(const char* filename, PileManager* manager)
+{
+	int rc;
+	xmlTextWriterPtr writer;
+	xmlChar *tmp;
+
+	writer = xmlNewTextWriterFilename(filename, 0);
+	if (writer == NULL) {
+		printf("testXmlwriterFilename: Error creating the xml writer\n");
+		return;
+	}
+
+    rc = xmlTextWriterStartDocument(writer, NULL, MY_ENCODING, NULL);
+    if (rc < 0) {
+        printf
+            ("testXmlwriterFilename: Error at xmlTextWriterStartDocument\n");
+        return;
+    }
+
+    rc = xmlTextWriterStartElement(writer, BAD_CAST "deck");
+    if (rc < 0) {
+        printf
+            ("testXmlwriterFilename: Error at xmlTextWriterStartElement\n");
+        return;
+    }
+
+    rc = xmlTextWriterWriteFormatElement(writer, BAD_CAST "name",
+                                         "%s", manager->Name());
+    if (rc < 0) {
+        printf
+            ("testXmlwriterFilename: Error at xmlTextWriterWriteFormatElement\n");
+        return;
+    }
+	
+	int32_t id = 0;
+	for (int32_t i = 1; i <= manager->GetMaxPile(); i++) {
+		list<Card*>* curDeck;
+		manager->GetPile(&curDeck, i);
+  		for (list<Card*>::iterator it = curDeck->begin(); it != curDeck->end(); it++, id++) {
+			Card* card = *it;
+    		rc = xmlTextWriterStartElement(writer, BAD_CAST "card");
+   			if (rc < 0) {
+    		    printf
+    		        ("testXmlwriterFilename: Error at xmlTextWriterStartElement\n");
+    		    return;
+    		}
+
+		    rc = xmlTextWriterWriteFormatAttribute(writer, BAD_CAST "id",
+                                     "%i", id);
+		    if (rc < 0) {
+        		printf
+        	    	("testXmlwriterFilename: Error at xmlTextWriterWriteAttribute\n");
+        		return;
+    		}
+
+		    rc = xmlTextWriterWriteFormatAttribute(writer, BAD_CAST "pile",
+                                     "%i", i);
+		    if (rc < 0) {
+        		printf
+        	    	("testXmlwriterFilename: Error at xmlTextWriterWriteAttribute\n");
+        		return;
+    		}
+			card->GetFront(&tmp);
+   			rc = xmlTextWriterWriteFormatElement(writer, BAD_CAST "front",
+                                         "%s", tmp);
+    		if (rc < 0) {
+        		printf
+           		("testXmlwriterFilename: Error at xmlTextWriterWriteFormatElement\n");
+        		return;
+    		}
+
+			card->GetBack(&tmp);
+   			rc = xmlTextWriterWriteFormatElement(writer, BAD_CAST "back",
+                                         "%s", tmp);
+    		if (rc < 0) {
+        		printf
+           		("testXmlwriterFilename: Error at xmlTextWriterWriteFormatElement\n");
+        		return;
+    		}
+
+			rc = xmlTextWriterEndElement(writer);
+   			if (rc < 0) {
+    		    printf
+    		        ("testXmlwriterFilename: Error at xmlTextWriterStartElement\n");
+    		    return;
+    		}
+		}
+	}
+
+    rc = xmlTextWriterEndDocument(writer);
+    if (rc < 0) {
+        printf
+            ("testXmlwriterFilename: Error at xmlTextWriterEndDocument\n");
+        return;
+    }
+
+    xmlFreeTextWriter(writer);
+}
+
+
+

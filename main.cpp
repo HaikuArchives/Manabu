@@ -55,8 +55,11 @@ main(int argc, char* argv[])
 
 	PileManager manager(5);
 
-	if (argc >= 2)
-		ParseDeckFile(argv[1], &manager);
+	if (argc < 2)
+		return -1;
+
+	ParseDeckFile(argv[1], &manager);
+	WriteDeckFile("test.dkf", &manager);	
 
 	for (;;) {
 		printf("Enter deck number you would like to practice [1-%i]: ", NUM_PILES);
