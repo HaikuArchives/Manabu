@@ -66,6 +66,7 @@
      <string>File</string>
     </property>
     <addaction name="fActionOpen"/>
+    <addaction name="fActionSaveDeck"/>
     <addaction name="fActionExit"/>
    </widget>
    <addaction name="fMenuFile"/>
@@ -79,6 +80,11 @@
   <action name="fActionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="fActionSaveDeck">
+   <property name="text">
+    <string>Save Deck</string>
    </property>
   </action>
  </widget>

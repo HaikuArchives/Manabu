@@ -76,40 +76,37 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">COLORTERM=gnome-terminal</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-z2EMWaWrLy,guid=40411bdf3ef70fdb72fbbe444c8681d1</value>
-    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/fluxbox.default.path</value>
-    <value type="QString">DESKTOP_SESSION=fluxbox</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-SIO9Jx2v2I,guid=7aa92d45337b2edc2904f3044c8dbe7e</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">GDMSESSION=fluxbox</value>
+    <value type="QString">GDMSESSION=gnome</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-yLGKV8</value>
-    <value type="QString">GNOME_KEYRING_PID=1552</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-SyjF0d</value>
+    <value type="QString">GNOME_KEYRING_PID=1591</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/bgroff</value>
     <value type="QString">LANG=en_US.utf8</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
     <value type="QString">LOGNAME=bgroff</value>
-    <value type="QString">MANDATORY_PATH=/usr/share/gconf/fluxbox.mandatory.path</value>
-    <value type="QString">OLDPWD=/home/bgroff/Projects/manabu</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
     <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-bgroff</value>
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString">PWD=/home/bgroff/Projects/manabu/qt</value>
+    <value type="QString">PWD=/home/bgroff</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/bgroff-desktop:@/tmp/.ICE-unix/1609,unix/bgroff-desktop:/tmp/.ICE-unix/1609</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=2</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1605</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-PqwNLq1570/agent.1570</value>
-    <value type="QString">TERM=xterm</value>
+    <value type="QString">SSH_AGENT_PID=1643</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-SyjF0d/ssh</value>
     <value type="QString">USER=bgroff</value>
     <value type="QString">USERNAME=bgroff</value>
-    <value type="QString">WINDOWID=27263176</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bgroff-fMqnvK/database</value>
-    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-fluxbox:/etc/xdg</value>
-    <value type="QString">XDG_SESSION_COOKIE=af24aaf3573bdd6cb90857044b8e3d3b-1283883472.898839-1653697873</value>
-    <value type="QString">_=/usr/bin/qtcreator</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bgroff-BgxKHy/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=af24aaf3573bdd6cb90857044b8e3d3b-1284357757.984137-676476194</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">/home/bgroff/Projects/manabu/qt/Manabu-qt.pro</value>
@@ -128,40 +125,37 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">COLORTERM=gnome-terminal</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-z2EMWaWrLy,guid=40411bdf3ef70fdb72fbbe444c8681d1</value>
-    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/fluxbox.default.path</value>
-    <value type="QString">DESKTOP_SESSION=fluxbox</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-SIO9Jx2v2I,guid=7aa92d45337b2edc2904f3044c8dbe7e</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">GDMSESSION=fluxbox</value>
+    <value type="QString">GDMSESSION=gnome</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-yLGKV8</value>
-    <value type="QString">GNOME_KEYRING_PID=1552</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-SyjF0d</value>
+    <value type="QString">GNOME_KEYRING_PID=1591</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/bgroff</value>
     <value type="QString">LANG=en_US.utf8</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
     <value type="QString">LOGNAME=bgroff</value>
-    <value type="QString">MANDATORY_PATH=/usr/share/gconf/fluxbox.mandatory.path</value>
-    <value type="QString">OLDPWD=/home/bgroff/Projects/manabu</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
     <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-bgroff</value>
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString">PWD=/home/bgroff/Projects/manabu/qt</value>
+    <value type="QString">PWD=/home/bgroff</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/bgroff-desktop:@/tmp/.ICE-unix/1609,unix/bgroff-desktop:/tmp/.ICE-unix/1609</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=2</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1605</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-PqwNLq1570/agent.1570</value>
-    <value type="QString">TERM=xterm</value>
+    <value type="QString">SSH_AGENT_PID=1643</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-SyjF0d/ssh</value>
     <value type="QString">USER=bgroff</value>
     <value type="QString">USERNAME=bgroff</value>
-    <value type="QString">WINDOWID=27263176</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bgroff-fMqnvK/database</value>
-    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-fluxbox:/etc/xdg</value>
-    <value type="QString">XDG_SESSION_COOKIE=af24aaf3573bdd6cb90857044b8e3d3b-1283883472.898839-1653697873</value>
-    <value type="QString">_=/usr/bin/qtcreator</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bgroff-BgxKHy/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=af24aaf3573bdd6cb90857044b8e3d3b-1284357757.984137-676476194</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">

@@ -23,6 +23,8 @@ ManabuWindow::ManabuWindow(QWidget *parent)
     connect(fWindow.fActionExit, SIGNAL(triggered()), this, SLOT(Quit()));
     connect(fWindow.fActionOpen, SIGNAL(triggered()), this, SLOT(OpenDeck()));
     connect(fWindow.fDeckNumber, SIGNAL(currentIndexChanged(int)), this, SLOT(PileIndexChanged(int)));
+    connect(fWindow.fActionSaveDeck, SIGNAL(triggered()), this, SLOT(SaveDeck()));
+    connect(fWindow.fDeckSelector, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(DeckClicked(QModelIndex)));
 }
 
 ManabuWindow::~ManabuWindow()
@@ -64,14 +66,21 @@ ManabuWindow::SubmitClicked()
 void
 ManabuWindow::Quit()
 {
+    SaveDeck();
     this->close();
 }
 
 
 void
+ManabuWindow::SaveDeck()
+{
+    PileManager* deck = fDecks[fCurrentDeck];
+    WriteDeckFile("test.dkf", deck);
+}
+
+void
 ManabuWindow::OpenDeck()
 {
-
     QString filename = QFileDialog::getOpenFileName(this, tr("Open Deck"),
                 QDir::currentPath(),
                 tr("Document files (*.dkf *.xml);;All files (*.*)"),
@@ -90,6 +99,8 @@ ManabuWindow::OpenDeck()
         _CreatePile(5);
         _ShowCard();
 
+        fWindow.fDeckNumber->clear();
+        // TODO: This is a hardcoded hack. This info needs to come from fCurrentDeck
         QStringList piles;
         piles << "1" << "2" << "3" << "4" << "5";
         fWindow.fDeckNumber->addItems(piles);
@@ -109,25 +120,47 @@ ManabuWindow::PileIndexChanged(int index)
 
 
 void
+ManabuWindow::DeckClicked(QModelIndex index)
+{
+    fCurrentDeck = index.row();
+    _CreatePile(fCurrentPile);
+    // Clear the results texts. This needs to be clear when
+    // a new deck is selected.
+    fWindow.fResult->setText("");
+    fPileSize = fOnDeck->size();
+    fCurrentCard = 0;
+    _ShowCard();
+}
+
+void
 ManabuWindow::_CreatePile(int pileNum)
 {
     PileManager* manager = fDecks[fCurrentDeck];
     manager->GetPile(&fOnDeck, pileNum);
+    fPileSize = fOnDeck->size();
+    fCurrentCard = 0;
 }
 
 void
 ManabuWindow::_ShowCard()
 {
     xmlChar* tmp;
-    if (fOnDeck->empty()) {
-        // TODO: This needs to not be hard coded.
-        _CreatePile(fCurrentPile);
-    }
-
+    // If the deck is empty, get the pile again
     if (fOnDeck->empty()) {
         fWindow.fWord->setText("");
         fWindow.fResult->setText("There are no cards left in the selected pile");
         return;
+    }
+
+    // Check if we have gone through all the cards.
+    if (fCurrentCard >= fPileSize) {
+        QMessageBox::about(this, "Letting you know...", \
+                           "You have run through all the cards in the " \
+                           "pile.");
+        fPileSize = fOnDeck->size();
+        fCurrentCard = 0;
+    } else {
+        fCurrentCard++;
     }
 
     Card* card = fOnDeck->front();
