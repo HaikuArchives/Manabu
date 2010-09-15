@@ -39,6 +39,7 @@ ManabuWindow::SubmitClicked()
 {
     if (fOnDeck->empty() || fDecks.empty())
         return;
+
     xmlChar *back;
     Card* card = fOnDeck->front();
     fOnDeck->pop_front();

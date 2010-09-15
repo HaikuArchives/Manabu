@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>440</width>
+    <height>365</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="fFrontLabel">
+     <property name="text">
+      <string>Front:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLineEdit" name="fFront"/>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="fFrontExampleLabel">
+     <property name="text">
+      <string>Front Example:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QLineEdit" name="fFrontExample"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="fBackLabel">
+     <property name="text">
+      <string>Back:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QLineEdit" name="fBack"/>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="QLabel" name="fBackExampleLabel">
+     <property name="text">
+      <string>Back Example:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="2">
+    <widget class="QLineEdit" name="fBackExample"/>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="fStartingPileLabel">
+     <property name="text">
+      <string>Starting Pile</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0" colspan="2">
+    <widget class="QLineEdit" name="fStartPile"/>
+   </item>
+   <item row="10" column="0">
+    <widget class="QPushButton" name="fCloseButton">
+     <property name="text">
+      <string>Close</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="1">
+    <widget class="QPushButton" name="fSubmitButton">
+     <property name="text">
+      <string>Add</string>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+     <property name="default">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

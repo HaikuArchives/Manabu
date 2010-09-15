@@ -14,6 +14,7 @@ HEADERS += manabuwindow.h \
     ../PileManager.h \
     ../config.h \
     ../Card.h
-FORMS += ../gui/qt/manabuwindow.ui
+FORMS += ../gui/qt/manabuwindow.ui \
+    ../gui/qt/editcardwindow.ui
 CONFIG += link_pkgconfig
 PKGCONFIG += libxml-2.0
