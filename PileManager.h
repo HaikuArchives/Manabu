@@ -26,7 +26,7 @@ public:
 
 	int32_t			AddToPile(Card* card, int32_t pileNumber);
 	int32_t			GetPile(list<Card*>** pile, int32_t pileNumber);
-	int32_t			GetMaxPile() { return fMaxPile; }
+        int32_t			MaxPile() { return fMaxPile; }
         void                    SetName(xmlChar* name) { fName = name; }
         xmlChar*                Name() { return fName; }
 private:

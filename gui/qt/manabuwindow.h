@@ -18,12 +18,18 @@ public slots:
     void                    SubmitClicked();
     void                    Quit();
     void                    OpenDeck();
+    void                    SaveDeck();
     void                    PileIndexChanged(int index);
+    void                    DeckClicked(QModelIndex);
+    void                    ToggleDisplay();
 private:
     Ui::fMainWindow         fWindow;
     map<int,PileManager*>   fDecks;
     int                     fCurrentDeck;
     int                     fCurrentPile;
+    int                     fPileSize;
+    int                     fCurrentCard;
+    bool                    fShowFront;
     list<Card*>*            fOnDeck;
 
     void                    _CreatePile(int pileNum);

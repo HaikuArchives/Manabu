@@ -76,7 +76,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-O9bloYHb88,guid=a44de535cdc7f4313b6160384c7d6e03</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-D3goSUMkb8,guid=bdac984b636833f04493ff624c8e74ae</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -84,9 +84,9 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-6ksU4X</value>
-    <value type="QString">GNOME_KEYRING_PID=1246</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-AarCrX/S.gpg-agent:1304:1</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-IbDBM9</value>
+    <value type="QString">GNOME_KEYRING_PID=1555</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-ulvfG4/S.gpg-agent:1613:1</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/bryce</value>
     <value type="QString">LANG=en_US.utf8</value>
@@ -97,16 +97,16 @@
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/bryce</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/s9n253:@/tmp/.ICE-unix/1264,unix/s9n253:/tmp/.ICE-unix/1264</value>
+    <value type="QString">SESSION_MANAGER=local/s9n253:@/tmp/.ICE-unix/1573,unix/s9n253:/tmp/.ICE-unix/1573</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-6ksU4X/ssh</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-IbDBM9/ssh</value>
     <value type="QString">USER=bryce</value>
     <value type="QString">USERNAME=bryce</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bryce-6jaN2N/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bryce-ZT2Cx0/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=7cbd62144788434faa9b55424c75b7d9-1283288578.764786-85594506</value>
+    <value type="QString">XDG_SESSION_COOKIE=7cbd62144788434faa9b55424c75b7d9-1284404397.918288-143758085</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">/home/bryce/Projects/manabu/qt/Manabu-qt.pro</value>
@@ -125,7 +125,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-O9bloYHb88,guid=a44de535cdc7f4313b6160384c7d6e03</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-D3goSUMkb8,guid=bdac984b636833f04493ff624c8e74ae</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -133,9 +133,9 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-6ksU4X</value>
-    <value type="QString">GNOME_KEYRING_PID=1246</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-AarCrX/S.gpg-agent:1304:1</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-IbDBM9</value>
+    <value type="QString">GNOME_KEYRING_PID=1555</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-ulvfG4/S.gpg-agent:1613:1</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/bryce</value>
     <value type="QString">LANG=en_US.utf8</value>
@@ -146,16 +146,16 @@
     <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/bryce</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/s9n253:@/tmp/.ICE-unix/1264,unix/s9n253:/tmp/.ICE-unix/1264</value>
+    <value type="QString">SESSION_MANAGER=local/s9n253:@/tmp/.ICE-unix/1573,unix/s9n253:/tmp/.ICE-unix/1573</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-6ksU4X/ssh</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-IbDBM9/ssh</value>
     <value type="QString">USER=bryce</value>
     <value type="QString">USERNAME=bryce</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bryce-6jaN2N/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-bryce-ZT2Cx0/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=7cbd62144788434faa9b55424c75b7d9-1283288578.764786-85594506</value>
+    <value type="QString">XDG_SESSION_COOKIE=7cbd62144788434faa9b55424c75b7d9-1284404397.918288-143758085</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">

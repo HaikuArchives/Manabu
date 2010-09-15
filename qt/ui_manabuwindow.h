@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'manabuwindow.ui'
 **
-** Created: Tue Sep 7 15:38:08 2010
+** Created: Tue Sep 14 12:31:54 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,6 +33,8 @@ class Ui_fMainWindow
 public:
     QAction *fActionOpen;
     QAction *fActionExit;
+    QAction *fActionSaveDeck;
+    QAction *fActionToggleDisplay;
     QWidget *fCentralWidget;
     QGridLayout *gridLayout;
     QTreeWidget *fDeckSelector;
@@ -42,6 +44,7 @@ public:
     QLabel *fWord;
     QMenuBar *fMenuBar;
     QMenu *fMenuFile;
+    QMenu *fMenuDeck;
     QStatusBar *fStatusBar;
 
     void setupUi(QMainWindow *fMainWindow)
@@ -53,6 +56,10 @@ public:
         fActionOpen->setObjectName(QString::fromUtf8("fActionOpen"));
         fActionExit = new QAction(fMainWindow);
         fActionExit->setObjectName(QString::fromUtf8("fActionExit"));
+        fActionSaveDeck = new QAction(fMainWindow);
+        fActionSaveDeck->setObjectName(QString::fromUtf8("fActionSaveDeck"));
+        fActionToggleDisplay = new QAction(fMainWindow);
+        fActionToggleDisplay->setObjectName(QString::fromUtf8("fActionToggleDisplay"));
         fCentralWidget = new QWidget(fMainWindow);
         fCentralWidget->setObjectName(QString::fromUtf8("fCentralWidget"));
         gridLayout = new QGridLayout(fCentralWidget);
@@ -89,14 +96,19 @@ public:
         fMenuBar->setGeometry(QRect(0, 0, 649, 25));
         fMenuFile = new QMenu(fMenuBar);
         fMenuFile->setObjectName(QString::fromUtf8("fMenuFile"));
+        fMenuDeck = new QMenu(fMenuBar);
+        fMenuDeck->setObjectName(QString::fromUtf8("fMenuDeck"));
         fMainWindow->setMenuBar(fMenuBar);
         fStatusBar = new QStatusBar(fMainWindow);
         fStatusBar->setObjectName(QString::fromUtf8("fStatusBar"));
         fMainWindow->setStatusBar(fStatusBar);
 
         fMenuBar->addAction(fMenuFile->menuAction());
+        fMenuBar->addAction(fMenuDeck->menuAction());
         fMenuFile->addAction(fActionOpen);
+        fMenuFile->addAction(fActionSaveDeck);
         fMenuFile->addAction(fActionExit);
+        fMenuDeck->addAction(fActionToggleDisplay);
 
         retranslateUi(fMainWindow);
 
@@ -108,11 +120,14 @@ public:
         fMainWindow->setWindowTitle(QApplication::translate("fMainWindow", "Manabu", 0, QApplication::UnicodeUTF8));
         fActionOpen->setText(QApplication::translate("fMainWindow", "Open", 0, QApplication::UnicodeUTF8));
         fActionExit->setText(QApplication::translate("fMainWindow", "Exit", 0, QApplication::UnicodeUTF8));
+        fActionSaveDeck->setText(QApplication::translate("fMainWindow", "Save Deck", 0, QApplication::UnicodeUTF8));
+        fActionToggleDisplay->setText(QApplication::translate("fMainWindow", "Display Back", 0, QApplication::UnicodeUTF8));
         QTreeWidgetItem *___qtreewidgetitem = fDeckSelector->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("fMainWindow", "Decks", 0, QApplication::UnicodeUTF8));
         fResult->setText(QString());
         fWord->setText(QString());
         fMenuFile->setTitle(QApplication::translate("fMainWindow", "File", 0, QApplication::UnicodeUTF8));
+        fMenuDeck->setTitle(QApplication::translate("fMainWindow", "Deck", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -119,13 +119,20 @@ WriteDeckFile(const char* filename, PileManager* manager)
 		printf("testXmlwriterFilename: Error creating the xml writer\n");
 		return;
 	}
-
-    rc = xmlTextWriterStartDocument(writer, NULL, MY_ENCODING, NULL);
+	rc = xmlTextWriterStartDocument(writer, NULL, MY_ENCODING, NULL);
     if (rc < 0) {
         printf
             ("testXmlwriterFilename: Error at xmlTextWriterStartDocument\n");
         return;
     }
+
+	rc = xmlTextWriterSetIndentString(writer, (xmlChar*)"\t");
+    if (rc < 0) {
+        printf
+            ("testXmlwriterFilename: Error at xmlTextWriterSetIndentString\n");
+        return;
+    }
+
 
     rc = xmlTextWriterStartElement(writer, BAD_CAST "deck");
     if (rc < 0) {
@@ -143,7 +150,7 @@ WriteDeckFile(const char* filename, PileManager* manager)
     }
 	
 	int32_t id = 0;
-	for (int32_t i = 1; i <= manager->GetMaxPile(); i++) {
+        for (int32_t i = 1; i <= manager->MaxPile(); i++) {
 		list<Card*>* curDeck;
 		manager->GetPile(&curDeck, i);
   		for (list<Card*>::iterator it = curDeck->begin(); it != curDeck->end(); it++, id++) {

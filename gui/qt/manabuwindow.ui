@@ -66,9 +66,17 @@
      <string>File</string>
     </property>
     <addaction name="fActionOpen"/>
+    <addaction name="fActionSaveDeck"/>
     <addaction name="fActionExit"/>
    </widget>
+   <widget class="QMenu" name="fMenuDeck">
+    <property name="title">
+     <string>Deck</string>
+    </property>
+    <addaction name="fActionToggleDisplay"/>
+   </widget>
    <addaction name="fMenuFile"/>
+   <addaction name="fMenuDeck"/>
   </widget>
   <widget class="QStatusBar" name="fStatusBar"/>
   <action name="fActionOpen">
@@ -79,6 +87,16 @@
   <action name="fActionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="fActionSaveDeck">
+   <property name="text">
+    <string>Save Deck</string>
+   </property>
+  </action>
+  <action name="fActionToggleDisplay">
+   <property name="text">
+    <string>Display Back</string>
    </property>
   </action>
  </widget>
