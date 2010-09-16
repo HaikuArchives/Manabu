@@ -22,6 +22,10 @@ public slots:
     void                    PileIndexChanged(int index);
     void                    DeckClicked(QModelIndex);
     void                    ToggleDisplay();
+    void                    NewDeck();
+    void                    EditDeck();
+    void                    EditCard();
+    void                    AddCard();
 private:
     Ui::fMainWindow         fWindow;
     map<int,PileManager*>   fDecks;
@@ -34,6 +38,7 @@ private:
 
     void                    _CreatePile(int pileNum);
     void                    _ShowCard();
+    void                    _AddMenuItem(PileManager* deck);
 };
 
 #endif // MANABUWINDOW_H

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'manabuwindow.ui'
 **
-** Created: Tue Sep 14 12:31:54 2010
+** Created: Wed Sep 15 16:05:56 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,6 +35,10 @@ public:
     QAction *fActionExit;
     QAction *fActionSaveDeck;
     QAction *fActionToggleDisplay;
+    QAction *fActionNewDeck;
+    QAction *fActionAddCard;
+    QAction *fActionEditCard;
+    QAction *fActionEditDeck;
     QWidget *fCentralWidget;
     QGridLayout *gridLayout;
     QTreeWidget *fDeckSelector;
@@ -60,6 +64,16 @@ public:
         fActionSaveDeck->setObjectName(QString::fromUtf8("fActionSaveDeck"));
         fActionToggleDisplay = new QAction(fMainWindow);
         fActionToggleDisplay->setObjectName(QString::fromUtf8("fActionToggleDisplay"));
+        fActionNewDeck = new QAction(fMainWindow);
+        fActionNewDeck->setObjectName(QString::fromUtf8("fActionNewDeck"));
+        fActionAddCard = new QAction(fMainWindow);
+        fActionAddCard->setObjectName(QString::fromUtf8("fActionAddCard"));
+        fActionEditCard = new QAction(fMainWindow);
+        fActionEditCard->setObjectName(QString::fromUtf8("fActionEditCard"));
+        fActionEditCard->setEnabled(false);
+        fActionEditDeck = new QAction(fMainWindow);
+        fActionEditDeck->setObjectName(QString::fromUtf8("fActionEditDeck"));
+        fActionEditDeck->setEnabled(false);
         fCentralWidget = new QWidget(fMainWindow);
         fCentralWidget->setObjectName(QString::fromUtf8("fCentralWidget"));
         gridLayout = new QGridLayout(fCentralWidget);
@@ -109,6 +123,12 @@ public:
         fMenuFile->addAction(fActionSaveDeck);
         fMenuFile->addAction(fActionExit);
         fMenuDeck->addAction(fActionToggleDisplay);
+        fMenuDeck->addSeparator();
+        fMenuDeck->addAction(fActionNewDeck);
+        fMenuDeck->addAction(fActionEditDeck);
+        fMenuDeck->addSeparator();
+        fMenuDeck->addAction(fActionAddCard);
+        fMenuDeck->addAction(fActionEditCard);
 
         retranslateUi(fMainWindow);
 
@@ -122,6 +142,10 @@ public:
         fActionExit->setText(QApplication::translate("fMainWindow", "Exit", 0, QApplication::UnicodeUTF8));
         fActionSaveDeck->setText(QApplication::translate("fMainWindow", "Save Deck", 0, QApplication::UnicodeUTF8));
         fActionToggleDisplay->setText(QApplication::translate("fMainWindow", "Display Back", 0, QApplication::UnicodeUTF8));
+        fActionNewDeck->setText(QApplication::translate("fMainWindow", "New Deck", 0, QApplication::UnicodeUTF8));
+        fActionAddCard->setText(QApplication::translate("fMainWindow", "Add Card(s)", 0, QApplication::UnicodeUTF8));
+        fActionEditCard->setText(QApplication::translate("fMainWindow", "Edit Card", 0, QApplication::UnicodeUTF8));
+        fActionEditDeck->setText(QApplication::translate("fMainWindow", "Edit Deck", 0, QApplication::UnicodeUTF8));
         QTreeWidgetItem *___qtreewidgetitem = fDeckSelector->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("fMainWindow", "Decks", 0, QApplication::UnicodeUTF8));
         fResult->setText(QString());

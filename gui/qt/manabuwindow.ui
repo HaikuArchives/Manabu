@@ -74,6 +74,12 @@
      <string>Deck</string>
     </property>
     <addaction name="fActionToggleDisplay"/>
+    <addaction name="separator"/>
+    <addaction name="fActionNewDeck"/>
+    <addaction name="fActionEditDeck"/>
+    <addaction name="separator"/>
+    <addaction name="fActionAddCard"/>
+    <addaction name="fActionEditCard"/>
    </widget>
    <addaction name="fMenuFile"/>
    <addaction name="fMenuDeck"/>
@@ -97,6 +103,32 @@
   <action name="fActionToggleDisplay">
    <property name="text">
     <string>Display Back</string>
+   </property>
+  </action>
+  <action name="fActionNewDeck">
+   <property name="text">
+    <string>New Deck</string>
+   </property>
+  </action>
+  <action name="fActionAddCard">
+   <property name="text">
+    <string>Add Card(s)</string>
+   </property>
+  </action>
+  <action name="fActionEditCard">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Edit Card</string>
+   </property>
+  </action>
+  <action name="fActionEditDeck">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Edit Deck</string>
    </property>
   </action>
  </widget>

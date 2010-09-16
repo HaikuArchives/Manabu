@@ -55,6 +55,9 @@ ParseDeckFile(const char* filename, PileManager* manager)
     /*Get the root element node */
     xmlNode *root = NULL;
     root = xmlDocGetRootElement(doc);
+    if (root == NULL)
+        return;
+
     for(cur_node = root->children; cur_node != NULL; cur_node = cur_node->next)
     {
         if (cur_node->type == XML_ELEMENT_NODE

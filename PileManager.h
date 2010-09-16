@@ -12,6 +12,7 @@
 #include "Card.h"
 
 #include <stdint.h>
+#include <string.h>
 #include <libxml/parser.h>
 
 #include <list>
@@ -27,8 +28,8 @@ public:
 	int32_t			AddToPile(Card* card, int32_t pileNumber);
 	int32_t			GetPile(list<Card*>** pile, int32_t pileNumber);
         int32_t			MaxPile() { return fMaxPile; }
-        void                    SetName(xmlChar* name) { fName = name; }
         xmlChar*                Name() { return fName; }
+        void                    SetName(xmlChar* name);
 private:
         list<Card*>*            fPiles;
         int32_t                 fMaxPile;

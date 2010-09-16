@@ -30,7 +30,8 @@ using namespace std;
 
 PileManager::PileManager()
 	:
-	fMaxPile(5)
+        fMaxPile(5),
+        fName(NULL)
 {
 	fPiles = new list<Card*>[fMaxPile];
 }
@@ -38,7 +39,8 @@ PileManager::PileManager()
 
 PileManager::PileManager(int32_t maxPile)
 	:
-	fMaxPile(maxPile)
+        fMaxPile(maxPile),
+        fName(NULL)
 {
 	fPiles = new list<Card*>[fMaxPile];
 }
@@ -46,6 +48,8 @@ PileManager::PileManager(int32_t maxPile)
 
 PileManager::~PileManager()
 {
+    xmlFree(fName);
+    delete [] fPiles;
 }
 
 
@@ -74,6 +78,14 @@ PileManager::GetPile(list<Card*>** pile, int32_t pileNumber)
 
 	*pile = &fPiles[pileNum];
 	return pileNum;
+}
+
+void
+PileManager::SetName(xmlChar *name)
+{
+    if (fName != NULL)
+        xmlFree(fName);
+    fName = (xmlChar*) strdup((const char*)name);
 }
 
 
